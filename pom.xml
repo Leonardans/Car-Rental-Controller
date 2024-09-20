@@ -13,7 +13,7 @@
 
 	<!-- Project Info -->
 	<groupId>org.rent_master</groupId>
-	<artifactId>car_rental_reservation_system</artifactId>
+	<artifactId>car_rental_controller</artifactId>
 	<version>2.0.0-SNAPSHOT</version>
 	<name>car-rental-reservation-system</name>
 	<description>car-business-rental-reservation</description>
@@ -102,13 +102,19 @@
 			<artifactId>hibernate-validator</artifactId>
 			<version>6.2.0.Final</version>
 		</dependency>
-		<!-- MariaDB -->
+		<!-- MariaDB
 		<dependency>
 			<groupId>org.mariadb.jdbc</groupId>
 			<artifactId>mariadb-java-client</artifactId>
 			<version>3.4.1</version>
 		</dependency>
-
+		-->
+		<!-- MySQl -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.33</version>
+		</dependency>
 		<!-- Spring Security -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

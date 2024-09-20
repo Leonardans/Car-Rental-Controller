@@ -32,34 +32,6 @@ public class BusinessController {
     }
 
 
-    // GET : Rental Data
-    @GetMapping("/{rentalId}")
-    public ResponseEntity<?> readRentalData(@PathVariable Long rentalId) {
-        String url = urlConfig.readRentalDataUrl(rentalId);
-        System.out.println("Get Rental Data URL: " + url);
-
-        ResponseEntity<?> response = restTemplate.exchange(
-                url,
-                HttpMethod.GET,
-                null,
-                Object.class);
-        return ResponseEntity.status(response.getStatusCode()).body(response.getBody());
-    }
-
-    // GET : Rental Employees Data
-    @GetMapping("/{rentalId}/employees")
-    public ResponseEntity<?> readRentalEmployeesData(@PathVariable Long rentalId) {
-        String url = urlConfig.readRentalDataUrl(rentalId);
-        System.out.println("Get Rental Employees Data URL: " + url);
-
-        ResponseEntity<?> response = restTemplate.exchange(
-                url,
-                HttpMethod.GET,
-                null,
-                Object.class);
-        return ResponseEntity.status(response.getStatusCode()).body(response.getBody());
-    }
-
     // POST : Create Branch for Rental
     @PostMapping("/{rentalId}/branches")
     public ResponseEntity<?> createBranch(@PathVariable Long rentalId,
@@ -117,6 +89,34 @@ public class BusinessController {
                 Object.class
         );
         controllerService.deleteTempFiles("car_pictures");
+        return ResponseEntity.status(response.getStatusCode()).body(response.getBody());
+    }
+
+    // GET : Rental Data
+    @GetMapping("/{rentalId}")
+    public ResponseEntity<?> readRentalData(@PathVariable Long rentalId) {
+        String url = urlConfig.readRentalDataUrl(rentalId);
+        System.out.println("Get Rental Data URL: " + url);
+
+        ResponseEntity<?> response = restTemplate.exchange(
+                url,
+                HttpMethod.GET,
+                null,
+                Object.class);
+        return ResponseEntity.status(response.getStatusCode()).body(response.getBody());
+    }
+
+    // GET : Rental Employees Data
+    @GetMapping("/{rentalId}/employees")
+    public ResponseEntity<?> readRentalEmployeesData(@PathVariable Long rentalId) {
+        String url = urlConfig.readRentalEmployeesDataUrl(rentalId);
+        System.out.println("Get Rental Employees Data URL: " + url);
+
+        ResponseEntity<?> response = restTemplate.exchange(
+                url,
+                HttpMethod.GET,
+                null,
+                Object.class);
         return ResponseEntity.status(response.getStatusCode()).body(response.getBody());
     }
 
